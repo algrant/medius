@@ -321,9 +321,42 @@ div.page-container {
         font-size: 18px;
         line-height: 1.5;
         padding: 20px;
-
         @media #{$media-sm} {
             line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            padding-bottom: 2em;
+        }
+
+        img + span.caption {
+            text-align: center;
+            display: block;
+            margin-top: -1em;
+            font-weight: bold;
+        }
+
+        .full-width-container {
+            width: 100vw;
+            margin-left: calc(0px - (100vw - 100%)/2);
+            text-align: center;
+            .github-iframe {
+                width: 80%;
+                padding: 0 auto;
+                height: calc(50vw);
+                max-width: 1000px;
+                max-height: 625px;
+            }
+        }
+
+        .centered-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            margin: 30px 0;
         }
     }
 

@@ -122,5 +122,29 @@
     {% endif %}
 
 </div>
-
 {% endblock %}
+
+{%- if article.extracss %}
+    {% block style %}
+        {%- for style in article.extracss %}
+            <link rel="stylesheet" href=" {{ style }}" />
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
+
+{%- if article.earlyjs %}
+    {% block earlyjs %}
+        {%- for js in article.earlyjs %}
+            <script src="{{ js }}"></script>
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
+
+{%- if article.extrajs %}
+    {% block jsLoad %}
+        {%- for js in article.extrajs %}
+            <script src="{{ js }}"></script>
+        {%- endfor %}
+        <div>hi</div>
+    {% endblock %}
+{%- endif %}

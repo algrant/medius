@@ -186,35 +186,15 @@ div.page-container {
     font-family: Merriweather, freight-text-pro, Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 18px;
     line-height: 1.5;
-    padding: 20px; }
+    padding: 20px;
+    background: red; }
     @media screen and (min-width: 35.5em) {
       div.page-container div.entry-content {
         line-height: 1.6; } }
-    div.page-container div.entry-content img {
-      display: block;
-      margin: auto;
-      padding-bottom: 2em; }
-    div.page-container div.entry-content img + span.caption {
-      text-align: center;
-      display: block;
-      margin-top: -1em;
-      font-weight: bold; }
     div.page-container div.entry-content .full-width-container {
       width: 100vw;
-      margin-left: calc(0px - (100vw - 100%)/2);
-      text-align: center; }
-      div.page-container div.entry-content .full-width-container .github-iframe {
-        width: 80%;
-        padding: 0 auto;
-        height: calc(50vw);
-        max-width: 1000px;
-        max-height: 625px; }
-    div.page-container div.entry-content .centered-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 30px 0; }
+      margin: calc((100vw - 100%)/2);
+      background: green; }
   div.page-container footer {
     margin: 0 auto;
     text-align: left;

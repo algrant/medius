@@ -6,32 +6,34 @@
         <div class="background-image-container">
 
             {# title with big background image #}
-            {% if page.image %}
-            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ page.image }});">
-                <img src="{{ page.image }}" alt="{{ page.title|striptags }}">
-                <div class="title">
-                <h1>
-                    {{ page.title }}
-                </h1>
-                {% if page.subtitle %}
-                <h2>
-                    {{ page.subtitle }}
-                </h2>
-                {% endif %}
-                </div>
-            </div>
-            {% else %}
-            <div class="background-image-small">
-                {% if page.smallimage %}
-                <img src="{{ page.smallimage }}" alt="{{ page.title|striptags }}">
-                {% endif %}
-                <div class="title-container">
-                    <h1>{{ page.title }}</h1>
+            {% if not page.notitle %} 
+                {% if page.image %}
+                <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ page.image }});">
+                    <img src="{{ page.image }}" alt="{{ page.title|striptags }}">
+                    <div class="title">
+                    <h1>
+                        {{ page.title }}
+                    </h1>
                     {% if page.subtitle %}
-                    <h4>{{ page.subtitle }}</h4>
+                    <h2>
+                        {{ page.subtitle }}
+                    </h2>
                     {% endif %}
+                    </div>
                 </div>
-            </div>
+                {% else %}
+                <div class="background-image-small">
+                    {% if page.smallimage %}
+                    <img src="{{ page.smallimage }}" alt="{{ page.title|striptags }}">
+                    {% endif %}
+                    <div class="title-container">
+                        <h1>{{ page.title }}</h1>
+                        {% if page.subtitle %}
+                        <h4>{{ page.subtitle }}</h4>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>
@@ -79,3 +81,28 @@
 </div>
 
 {% endblock %}
+
+
+{%- if page.extracss %}
+    {% block style %}
+        {%- for style in page.extracss %}
+            <link rel="stylesheet" href=" {{ style }}" />
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
+
+{%- if page.earlyjs %}
+    {% block earlyjs %}
+        {%- for js in page.earlyjs %}
+            <script src="{{ js }}"></script>
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
+
+{%- if page.extrajs %}
+    {% block jsLoad %}
+        {%- for js in page.extrajs %}
+            <script src="{{ js }}"></script>
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
